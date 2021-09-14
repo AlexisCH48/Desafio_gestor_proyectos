@@ -1,0 +1,44 @@
+<h1>Proyectos</h1>
+<h4>listado de proyectos</h4>
+
+<form> 
+    <p>Buscar proyecto por estado:</p>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault04">Estado del proyecto</label>
+      <select class="custom-select" name="state">
+        <option value= "0" >propuesta</option>
+        <option value= "1" >En Progreso</option>
+        <option value= "2 ">Termiando</option>
+        <option value= "">todo</option>
+      </select>
+    </div>
+  <button class="btn btn-outline-primary" type="submit">Buscar proyecto</button>
+  <button class="btn btn-outline-primary" type="submit"><%= link_to "Nuevo Proyecto", proyects_new_path %></button>
+</form>
+
+<table class="table table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Fecha inicio</th>
+      <th scope="col">Fecha termino</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @proyects.each do |proyect| %>
+    <tr>
+        <td><%= proyect.id%></td>
+        <td><%= proyect.name%></td>
+        <td><%= proyect.description%></td>
+        <td><%= proyect.state%></td>
+        <td><%= proyect.initial_date%></td>
+        <td><%= proyect.finish_date%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
